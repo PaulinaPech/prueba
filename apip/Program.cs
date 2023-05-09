@@ -5,27 +5,9 @@ builder.Services.AddDbContext<ProductoDb>(opt => opt.UseInMemoryDatabase("Produc
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 var app = builder.Build();
 
-app.MapGet("/productos", async (HttpContext context) =>
-{
-  int pagina = Convert.ToInt32(context.Request.Query["pagina"]);
-  int productos = 3; // Cantidad de productos por pagina
+app.MapGet("/productos", async (ProductoDb db) =>
+    await db.Productos.ToListAsync());
 
-  // Obtener lista completa de productos de la memoria
-  List<Producto> productos = await db.Productos.ToListAsync();
-
-  // Calcular información de paginación
- int totalProductos = productos.Count;
- int paginasTotales = (int)Math.Ceiling((double)totalProductos / tamanoPagina);
- int indiceInicial = (pagina - 1) * tamanoPagina;
- int indiceFinal = Math.Min(indiceInicial + tamanoPagina, totalProductos);
-
- // Obtener lista de productos paginada
- List<Producto> productosPaginados = productos.GetRange(indiceInicial, indiceFinal - indiceInicial);
-
- // Crear instancia de ProductosPaginasResult y devolverla como resultado
- return new ProductosPaginasResult<Producto>(productosPaginados, pagina, paginasTotales);
-
-});
 
 app.MapGet("/productos/{id}", async (int id, ProductoDb db) =>
     await db.Productos.FindAsync(id)

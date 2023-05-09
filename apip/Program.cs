@@ -22,5 +22,25 @@ app.MapPost("/productos", async (Producto producto, ProductoDb db) =>
     return Results.Created($"/productos/{producto.Id}", producto);
 });
 
+app.MapPut("/productos/{id}", async (int id, Producto inputProducto, ProductoDb db) => {
+    var producto = await db.Productos.FindAsync(id);
+    if (producto is null) return Results.NotFound();
+
+    producto.Nombre = inputProducto.Nombre;
+    producto.Precio = inputProducto.Precio;
+
+    await db.SaveChangesAsync();
+    return Results.NoContent();
+});
+
+app.MapDelete("/productos/{id}", async (int id, ProductoDb db) => {
+    if (await db.Productos.FindAsync(id) is Producto producto)
+    {
+        db.Productos.Remove(producto);
+        await db.SaveChangesAsync();
+        return Results.Ok(producto);
+    }
+    return Results.NotFound();
+});
 
 app.Run();

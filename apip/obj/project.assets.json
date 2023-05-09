@@ -660,19 +660,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\gamep\\.nuget\\packages\\": {}
+    "C:\\Users\\Stephanie\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gamep\\OneDrive\\Documentos\\GitHub\\prueba\\apip\\apip.csproj",
+      "projectUniqueName": "C:\\Users\\Stephanie\\Desktop\\prueba\\apip\\apip.csproj",
       "projectName": "apip",
-      "projectPath": "C:\\Users\\gamep\\OneDrive\\Documentos\\GitHub\\prueba\\apip\\apip.csproj",
-      "packagesPath": "C:\\Users\\gamep\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gamep\\OneDrive\\Documentos\\GitHub\\prueba\\apip\\obj\\",
+      "projectPath": "C:\\Users\\Stephanie\\Desktop\\prueba\\apip\\apip.csproj",
+      "packagesPath": "C:\\Users\\Stephanie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Stephanie\\Desktop\\prueba\\apip\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\gamep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Stephanie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -680,6 +685,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
